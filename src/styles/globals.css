@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* =========================
+   Arabic typography + RTL
+   ========================= */
+
+/* If you have the licensed Frutiger Arabic webfont files, place them in:
+   /public/fonts/FrutigerArabic.woff2 (and optionally .woff)
+   The site will automatically use it for Arabic, with safe fallbacks. */
+@font-face {
+  font-family: "Frutiger Arabic";
+  src: url("/fonts/FrutigerArabic.woff2") format("woff2"),
+       url("/fonts/FrutigerArabic.woff") format("woff");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  --font-heading: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+}
+
+html[lang="ar"] {
+  --font-sans: "IBM Plex Sans Arabic", "Tajawal", "Cairo", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "IBM Plex Sans Arabic", "Tajawal", "Cairo", ui-sans-serif, system-ui, sans-serif;
+}
+
+
+/* =========================
+   FORCE LANGUAGE FONTS
+   (prevents any component-level overrides)
+   ========================= */
+html[lang="en"] body,
+html[lang="en"] .font-heading {
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif !important;
+}
+
+html[lang="ar"] body,
+html[lang="ar"] .font-heading {
+  font-family: "IBM Plex Sans Arabic", "Tajawal", "Cairo", ui-sans-serif, system-ui, sans-serif !important;
+}
+
+/* RTL improvements: spacing + alignment + form fields */
+html[dir="rtl"] body {
+  text-align: right;
+}
+
+html[dir="rtl"] .tracking-wider { letter-spacing: 0; }
+html[dir="rtl"] .leading-relaxed { line-height: 1.95; }
+
+html[dir="rtl"] input,
+html[dir="rtl"] textarea {
+  text-align: right;
+}
+
+html[dir="rtl"] .text-left { text-align: right !important; }
+
+/* LIGHT MODE */
+:root {
+  --radius: 0.5rem;
+
+  --background: 0 0% 100%;
+  --foreground: 222 47% 11%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+
+  --primary: 221 83% 53%;
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 210 40% 96%;
+  --secondary-foreground: 222 47% 11%;
+
+  --muted: 210 40% 96%;
+  --muted-foreground: 215 16% 47%;
+
+  --accent: 210 40% 96%;
+  --accent-foreground: 222 47% 11%;
+
+  --border: 214 32% 91%;
+  --input: 214 32% 91%;
+  --ring: 221 83% 53%;
+
+  --elevate-1: rgba(0,0,0,.03);
+  --elevate-2: rgba(0,0,0,.08);
+
+  --font-sans: "Open Sans", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  --font-heading: "Montserrat", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+}
+
+.dark {
+  --background: 222 47% 11%;
+  --foreground: 210 40% 98%;
+
+  --card: 222 47% 11%;
+  --card-foreground: 210 40% 98%;
+
+  --popover: 222 47% 11%;
+  --popover-foreground: 210 40% 98%;
+
+  --primary: 217 91% 60%;
+  --primary-foreground: 222 47% 11%;
+
+  --secondary: 217 33% 18%;
+  --secondary-foreground: 210 40% 98%;
+
+  --muted: 217 33% 18%;
+  --muted-foreground: 215 20% 65%;
+
+  --accent: 217 33% 18%;
+  --accent-foreground: 210 40% 98%;
+
+  --border: 217 33% 18%;
+  --input: 217 33% 18%;
+  --ring: 224 76% 48%;
+
+  --elevate-1: rgba(255,255,255,.04);
+  --elevate-2: rgba(255,255,255,.09);
+}
+
+@layer base {
+  body {
+    @apply antialiased bg-background text-foreground;
+    font-family: var(--font-sans);
+  }
+  .font-heading { font-family: var(--font-heading); }
+}
