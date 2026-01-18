@@ -9,6 +9,8 @@ type PageHeroProps = {
   subtitleAr?: string;
   badgeEn?: string;
   badgeAr?: string;
+  /** Optional per-page background image (falls back to the default hero image). */
+  backgroundImage?: string;
 };
 
 export function PageHero({
@@ -18,20 +20,26 @@ export function PageHero({
   subtitleAr,
   badgeEn = "General Contracting",
   badgeAr = "المقاولات العامة",
+  backgroundImage,
 }: PageHeroProps) {
   const { language } = useLanguage();
 
   const title = language === "en" ? titleEn : titleAr;
   const subtitle = language === "en" ? subtitleEn : subtitleAr;
   const badge = language === "en" ? badgeEn : badgeAr;
+  const bg = backgroundImage || heroImage;
 
   return (
     <section className="relative min-h-[60vh] pt-24 flex items-end overflow-hidden">
       {/* Background */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      />
+      <div className="absolute inset-0 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center hero-bg-animate"
+          style={{ backgroundImage: `url(${bg})` }}
+        />
+        {/* Soft animated highlight sweep */}
+        <div className="absolute inset-0 hero-sheen" />
+      </div>
 
       {/* Premium dark overlays */}
       <div className="absolute inset-0 bg-black/55" />
