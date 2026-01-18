@@ -44,6 +44,71 @@ html[lang="ar"] .font-heading {
   font-family: "IBM Plex Sans Arabic", "Tajawal", "Cairo", ui-sans-serif, system-ui, sans-serif !important;
 }
 
+
+/* =========================
+   FORCE + TUNE AR/EN FONTS (BCG-style)
+   ========================= */
+
+/* English: Inter */
+html[lang="en"] body,
+html[lang="en"] .font-heading {
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif !important;
+}
+
+/* Arabic: IBM Plex Sans Arabic (tuned to feel more "corporate") */
+html[lang="ar"] body,
+html[lang="ar"] .font-heading {
+  font-family: "IBM Plex Sans Arabic", "Tajawal", "Cairo", ui-sans-serif, system-ui, sans-serif !important;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0 !important;
+}
+
+/* Heading weights & rhythm (avoid 700; feels too heavy vs BCG) */
+html[lang="ar"] h1,
+html[lang="ar"] h2 {
+  font-weight: 600 !important;
+  line-height: 1.22 !important;
+  /* subtle horizontal compression (BCG-like) */
+  transform: scaleX(0.975);
+  transform-origin: right;
+}
+
+html[lang="ar"] h3,
+html[lang="ar"] h4,
+html[lang="ar"] h5,
+html[lang="ar"] h6 {
+  font-weight: 500 !important;
+  line-height: 1.35 !important;
+}
+
+/* Body copy */
+html[lang="ar"] p,
+html[lang="ar"] li,
+html[lang="ar"] span,
+html[lang="ar"] a {
+  font-weight: 400;
+  line-height: 1.85 !important;
+  letter-spacing: 0 !important;
+}
+
+/* Buttons + nav */
+html[lang="ar"] button,
+html[lang="ar"] .btn,
+html[lang="ar"] nav a {
+  font-weight: 500 !important;
+  letter-spacing: 0 !important;
+}
+
+/* Forms */
+html[lang="ar"] input,
+html[lang="ar"] textarea,
+html[lang="ar"] select {
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+}
+
 /* RTL improvements: spacing + alignment + form fields */
 html[dir="rtl"] body {
   text-align: right;
