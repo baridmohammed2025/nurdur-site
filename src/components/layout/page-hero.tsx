@@ -1,6 +1,7 @@
 import { useLanguage } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
-import heroImage from "@assets/generated_images/excavator.jpg";
+// Default hero background extracted from the site's cinematic MP4s (to avoid blank placeholder JPGs).
+import heroImage from "@assets/hero-bg.jpg";
 
 type PageHeroProps = {
   titleEn: string;
@@ -42,8 +43,8 @@ export function PageHero({
       </div>
 
       {/* Premium dark overlays */}
-      <div className="absolute inset-0 bg-black/55" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/55 to-black/80" />
+      <div className="absolute inset-0 bg-black/35" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/75" />
 
       {/* Content */}
       <div className="relative z-10 w-full pb-16">
