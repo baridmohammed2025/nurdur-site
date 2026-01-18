@@ -5,8 +5,6 @@ import { CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLanguage, translations } from "@/lib/i18n";
 
-import aboutHeroImage from "@assets/hero-bg.jpg";
-
 export default function About() {
   const { language } = useLanguage();
   const t = translations[language].about;
@@ -22,7 +20,6 @@ export default function About() {
           titleAr="من نحن"
           subtitleEn="Company overview, values, and capabilities."
           subtitleAr="نبذة عن الشركة وقيمها وقدراتها."
-          backgroundImage={aboutHeroImage}
         />
 
         <section className="py-20">

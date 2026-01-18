@@ -9,8 +9,6 @@ import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLanguage, translations } from "@/lib/i18n";
 
-import contactHeroImage from "@assets/generated_images/substation.jpg";
-
 export default function Contact() {
   const { language } = useLanguage();
   const t = translations[language].contactPage;
@@ -32,7 +30,6 @@ export default function Contact() {
           titleAr="تواصل معنا"
           subtitleEn="Talk to our team for inquiries, partnerships, and quotes."
           subtitleAr="تواصل مع فريقنا للاستفسارات والشراكات وطلبات عروض الأسعار."
-          backgroundImage={contactHeroImage}
         />
 
         <section className="py-20">

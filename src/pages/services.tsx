@@ -28,7 +28,6 @@ export default function Services() {
           titleAr="خدماتنا"
           subtitleEn="Integrated contracting, civil engineering, and electrical solutions."
           subtitleAr="حلول متكاملة للمقاولات والهندسة المدنية والأعمال الكهربائية."
-          backgroundImage={excavatorImage}
         />
 
         <section className="py-20 overflow-hidden">
