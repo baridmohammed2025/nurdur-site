@@ -6,6 +6,8 @@ import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 import { useLanguage, translations } from "@/lib/i18n";
 
+import blueprintImage from "@assets/generated_images/blueprint.jpg";
+
 export default function Projects() {
   const { language } = useLanguage();
   const t = translations[language].projectsPage;
@@ -24,6 +26,7 @@ export default function Projects() {
           titleAr="المشاريع"
           subtitleEn="Selected works across construction, infrastructure, and electrical projects."
           subtitleAr="نماذج من أعمالنا في البناء والبنى التحتية والمشاريع الكهربائية."
+          backgroundImage={blueprintImage}
         />
 
         <section className="py-20">
