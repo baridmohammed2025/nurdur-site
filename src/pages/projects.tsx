@@ -6,12 +6,26 @@ import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 import { useLanguage, translations } from "@/lib/i18n";
 
+import industrialCityImg from "@assets/projects/industrial_city.jpg";
+import residentialInfraImg from "@assets/projects/residential_infra.jpg";
+import substationUpgradeImg from "@assets/projects/substation_upgrade.jpg";
+import schoolBuildingImg from "@assets/projects/school_building.jpg";
+import highwayMaintenanceImg from "@assets/projects/highway_maintenance.jpg";
+
 export default function Projects() {
   const { language } = useLanguage();
   const t = translations[language].projectsPage;
   const common = translations[language].common;
 
   const projects = t.projects;
+
+  const projectImages = [
+    industrialCityImg,
+    residentialInfraImg,
+    substationUpgradeImg,
+    schoolBuildingImg,
+    highwayMaintenanceImg,
+  ];
 
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans">
@@ -32,10 +46,14 @@ export default function Projects() {
               {projects.map((project, index) => (
                 <motion.div key={index} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: index * 0.1 }}>
                   <Card className="overflow-hidden hover:shadow-lg transition-shadow">
-                    <div className="h-48 bg-slate-200 w-full relative group">
-                      <div className="absolute inset-0 flex items-center justify-center bg-slate-300 text-slate-600">
-                        <span className="font-semibold">{common.projectImage}</span>
-                      </div>
+                    <div className="h-48 bg-slate-200 w-full relative group overflow-hidden">
+                      <img
+                        src={projectImages[index % projectImages.length]}
+                        alt={project.title}
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent" />
                       <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                         <span className="text-white font-semibold">{common.viewDetails}</span>
                       </div>
