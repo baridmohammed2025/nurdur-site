@@ -133,7 +133,10 @@ export function Navbar() {
               <Button
                 className={cn(
                   "hidden sm:inline-flex",
-                  "bg-white text-black hover:bg-white/90"
+                  // Primary CTA (corporate blue)
+                  "bg-gradient-to-r from-blue-900 to-blue-800 text-white shadow-lg",
+                  "hover:from-blue-800 hover:to-blue-700",
+                  "focus-visible:ring-2 focus-visible:ring-primary/40"
                 )}
               >
                   {common.getQuote}
